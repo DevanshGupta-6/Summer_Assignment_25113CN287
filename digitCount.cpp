@@ -10,5 +10,5 @@ int main(){
         c++;
         n/=10;
     }
-    cout<<"It has "<<n<<"digits";
+    cout<<"It has "<<c<<"digits";
 }
