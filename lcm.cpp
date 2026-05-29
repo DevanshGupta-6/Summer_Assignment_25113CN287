@@ -16,5 +16,4 @@ int main(){
     cout<<"Enter 2 numbers: ";
     cin>>n1>>n2;
     cout << (n1/gcd(n1, n2)) * n2;
-    
 }
