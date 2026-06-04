@@ -1,5 +1,6 @@
 #include <iostream>
 #include <cmath>
+using namespace std;
 bool isArmstrong(int n){
     int n1 = n, s = 0, c = 0;
     while(n>0){
