@@ -17,5 +17,5 @@ int main(){
       if(arr[i]<min)
        min = arr[i];
    }
-   cout<<"The largest number is "<<max<<" and the smallest is "<min;
+   cout<<"The largest number is "<<max<<" and the smallest is "<<min;
 }
