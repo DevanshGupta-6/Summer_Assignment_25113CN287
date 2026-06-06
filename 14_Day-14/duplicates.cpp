@@ -1,30 +1,33 @@
 #include <iostream>
+#include <vector>
 using namespace std;
 
 int main(){
     int n;
     cout<<"Enter number of terms: ";
     cin>>n;
-    int arr[n];
+    vector<int> arr(n);
     cout<<"Enter numbers: ";
     for(int i = 0; i<n; i++){
        cin>>arr[i];
     }
-    int newarr[n];
+    vector<int> newarr(n);
+    int newIndex = 0;
     for(int i = 0; i<n; i++){
         if(arr[i] == -1){
-            cout<<"That's invalid: i = "<<i<<" ";
             continue;
         }
-        newarr[i] = arr[i];
+        newarr[newIndex] = arr[i];
+        newIndex++;
         for(int j = i+1; j<n; j++){
             if(arr[i] == arr[j]){
-                cout<<"Found a duplicate: i = "<<i<<" j = "<<j<<"// ";
                 arr[j] = -1;
             }
         }
     }
-    for(int i = 0; i<n; i++){
-        cout<<newarr[i]<<" ";
+    int k = 0;
+    while(newarr[k]!= 0){
+        cout<<newarr[k]<<" ";
+        k++;
     }
 }
