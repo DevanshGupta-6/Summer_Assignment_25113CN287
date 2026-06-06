@@ -17,7 +17,7 @@ int main(){
     for(int i = 0; i<n; i++){
        cin>>arr[i];
     }
-    int maximum = max(arr, (sizeof(arr)/sizeof(arr[0]))), secMax = 0;
+    int maximum = max(arr, n), secMax = 0;
 
     for(int i = 0; i<n; i++){
        if(arr[i]>secMax&&arr[i]<maximum)
