@@ -17,10 +17,11 @@ int main(){
         if(arr[i] == -1){
             continue;
         }
-        newarr[newIndex] = arr[i];
-        newIndex++;
+        
         for(int j = i+1; j<n; j++){
             if(arr[i] == arr[j]){
+                newarr[newIndex] = arr[i];
+                newIndex++;
                 arr[j] = -1;
             }
         }
