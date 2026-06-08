@@ -9,15 +9,19 @@ int main(){
     for(int i = 0; i<n; i++){
       cin>>arr[i];
     }
-
-    for(int i = 0; i<n; i++){
-        for(int j = 0; j<n; j++){
-            if(arr[i]>arr[j]){
-                int t = arr[i];
-                arr[i] = arr[j];
+    bool swapped;
+    for(int i = 0; i<n-1; i++){
+        swapped = false;
+        for(int j = 0; j<n-i-1; j++){
+            if(arr[j]>arr[j+1]){
+                int t = arr[j+1];
+                arr[j+1] = arr[j];
                 arr[j] = t;
+                swapped = true;
             }
         }
+        if(!swapped)
+            break;
     }
     for(int i = 0; i<n; i++){
         cout<<arr[i]<<" ";
