@@ -20,5 +20,4 @@ int main(){
     }
 
     vector<int> resarr(n1+n2);
-    
 }
