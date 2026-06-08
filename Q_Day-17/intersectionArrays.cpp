@@ -29,8 +29,8 @@ int main(){
             }
         }
     }
-
-    for(int i = 0; resarr[i]!=0; i++){
+    resarr.resize(newIndex+1);
+    for(int i = 0; i<newIndex; i++){
         cout<<resarr[i]<<" ";
     }
 }
