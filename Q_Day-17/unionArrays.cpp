@@ -19,18 +19,6 @@ int main(){
       cin>>arr2[i];
     }
 
-    vector<int> resarr(min(n1, n2));
-    int newIndex = 0;
-    for(int i = 0; i<n1; i++){
-        for(int j = 0; j<n2; j++){
-            if(arr1[i] == arr2[j]){
-              resarr[newIndex] = arr2[j];
-              newIndex++;
-            }
-        }
-    }
-
-    for(int i = 0; resarr[i]!=0; i++){
-        cout<<resarr[i]<<" ";
-    }
+    vector<int> resarr(n1+n2);
+    
 }
