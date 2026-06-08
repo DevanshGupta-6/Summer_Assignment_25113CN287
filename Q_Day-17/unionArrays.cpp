@@ -2,6 +2,7 @@
 #include <vector>
 #include <cmath>
 using namespace std;
+
 int main(){
     int n1, n2;
     cout<<"Enter number of terms for array 1: ";
@@ -19,5 +20,23 @@ int main(){
       cin>>arr2[i];
     }
 
-    vector<int> resarr(n1+n2);
+    vector<int> combArr(n1+n2);
+    for(int i = 0; i<n1+n2; i++){
+        if(i<n1){
+            combArr[i] = arr1[i];
+        }else{
+            combArr[i] = arr2[i - n1];
+        }
+    }
+
+    vector<int> intersection(min(n1, n2));
+    int newIndex = 0;
+    for(int i = 0; i<n1; i++){
+        for(int j = 0; j<n2; j++){
+            if(arr1[i] == arr2[j]){
+              intersection[newIndex] = arr2[j];
+              newIndex++;
+            }
+        }
+    }
 }
