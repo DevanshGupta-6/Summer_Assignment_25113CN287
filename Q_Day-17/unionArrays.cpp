@@ -19,7 +19,7 @@ int main(){
     for(int i = 0; i<n2; i++){
       cin>>arr2[i];
     }
-
+    //Merge the two arrays
     vector<int> combArr(n1+n2);
     for(int i = 0; i<n1+n2; i++){
         if(i<n1){
@@ -29,14 +29,39 @@ int main(){
         }
     }
 
+    //Find intersection of the arrays
     vector<int> intersection(min(n1, n2));
-    int newIndex = 0;
+    int interIndex = 0;
     for(int i = 0; i<n1; i++){
         for(int j = 0; j<n2; j++){
             if(arr1[i] == arr2[j]){
-              intersection[newIndex] = arr2[j];
-              newIndex++;
+              intersection[interIndex] = arr2[j];
+              interIndex++;
             }
         }
     }
+
+    intersection.resize(interIndex+1);
+    vector<int> unionArr(n1+n2);
+    int unionIndex = 0;
+    interIndex = 0;
+    for(int j = 0; j<n1+n2;j++){
+        if(intersection[interIndex] == combArr[j]){
+            if(interIndex == (intersection.size()-1)){
+                unionArr[unionIndex] = combArr[j];
+                unionIndex++;
+                continue;
+            }else{
+                interIndex++;
+                continue;
+            }
+            
+        }
+        unionArr[unionIndex] = combArr[j];
+        unionIndex++;
+    }
+    for(int i = 0; unionArr[i]!=0; i++){
+        cout<<unionArr[i]<<" ";
+    }
+    
 }
