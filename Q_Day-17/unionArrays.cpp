@@ -40,8 +40,24 @@ int main(){
             }
         }
     }
+    //cout<<"interIndex: "<<interIndex<<endl;
 
-    intersection.resize(interIndex+1);
+    intersection.resize(interIndex);//Reduces array size to make space
+
+    /* Code block used for debugging 
+    cout<<"Merged array: ";
+    for(int i = 0; i<n1+n2; i++){
+        cout<<combArr[i]<<" ";
+    }
+    cout<<endl<<"Intersection: ";
+    for(int i = 0; i<intersection.size(); i++){
+        cout<<intersection[i]<<" ";
+    }
+    cout<<endl;
+    */
+    
+
+
     vector<int> unionArr(n1+n2);
     int unionIndex = 0;
     interIndex = 0;
