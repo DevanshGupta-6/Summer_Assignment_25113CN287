@@ -1,6 +1,6 @@
 #include <iostream>
 #include <vector>
-#include <cmath>
+
 using namespace std;
 int main(){
     int n1, n2;
