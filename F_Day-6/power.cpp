@@ -7,5 +7,5 @@ int main(){
    for(int i = 1; i<=p; i++){
       res*=n;
    }
-   cout>>n>>" ^ ">>p>>" = ">>res;
+   cout<<n<<" ^ "<<p<<" = "<<res;
 }
