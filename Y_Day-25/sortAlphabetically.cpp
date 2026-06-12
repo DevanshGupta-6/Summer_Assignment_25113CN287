@@ -1,6 +1,7 @@
 #include <iostream>
 using namespace std;
 
+//Code incomplete
 int main(){
     int n;
     cout<<"Enter number of names: ";
