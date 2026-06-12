@@ -2,14 +2,18 @@
 using namespace std;
 
 int main(){
-    int n1, n2, gcd;
+    int n1, n2;
     cout<<"Enter two numbers: ";
     cin>>n1>>n2;
 
-    int n = min(n1, n2);
-    for(int i = 1; i<=n; i++){
-	    if(n1%i == 0 && n2%i == 0)
-		    gcd = i;
+    while(n1>0&&n2>0){
+        if(n1>n2)
+            n1 = n1%n2;
+        else if(n2>n1)
+            n2 = n2%n1;
     }
-    cout<<gcd<<" is the GCD";
+    if(n1 == 0)
+        cout<<n2<<" is the GCD";
+    else
+        cout<<n1<<" is the GCD";
 }
