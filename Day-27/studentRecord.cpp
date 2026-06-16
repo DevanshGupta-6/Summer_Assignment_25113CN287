@@ -21,11 +21,11 @@ class Student{
             cout<<"Name: "<<name<<endl;
             cout<<"Roll Number: "<<rollNo<<endl;
             cout<<"Marks: "<<endl;
-            cout<<"Physics: "<<marks[0];
-            cout<<"Graphics: "<<marks[1];
-            cout<<"Maths: "<<marks[2];
-            cout<<"EVS: "<<marks[3];
-            cout<<"PPS: "<<marks[4];
+            cout<<"Physics: "<<marks[0]<<endl;
+            cout<<"Graphics: "<<marks[1]<<endl;
+            cout<<"Maths: "<<marks[2]<<endl;
+            cout<<"EVS: "<<marks[3]<<endl;
+            cout<<"PPS: "<<marks[4]<<endl;
         }
 };
 
