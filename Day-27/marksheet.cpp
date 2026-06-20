@@ -34,6 +34,7 @@ class Student{
             cout<<"PPS: "<<marks[4]<<endl;
             cout<<"Total Marks: "<<marks[0]+marks[1]+marks[2]+marks[3]+marks[4]<<endl;
             cout<<"Percentage: "<<((double)(marks[0]+marks[1]+marks[2]+marks[3]+marks[4]))/5.0<<"%"<<endl;
+            cout<<"-------------End of line-------------"<<endl;
         }
 };
 
