@@ -30,12 +30,22 @@ int search(string s, char key){
     }
     return -1;
 }
+bool isPalindrome(string s){
+    string d = s;
+    reverse(s);
+    if(s == d){
+        cout<<"The string is palindrome!";
+        return true;
+    }
+    cout<<"The string is not palindrome!";
+    return false;
+}
 int main(){
     string s;
     cout<<"Enter text: ";
     getline(cin, s);
     int c;
-    cout<<"Enter your choice: 1. Sorting alphabetically 2. Reversing the string: 3. Display the string: 4. Searching a character: ";
+    cout<<"Enter your choice:\n1. Sorting alphabetically\n2. Reversing the string:\n3. Display the string: \n4. Searching a character: \n5. Check if text is palindrome: ";
     cin>>c;
     switch(c){
         case 1:
@@ -59,6 +69,10 @@ int main(){
             } else {
                 cout<<"Character not found!";
             }
+            break;
+        }
+        case 5:{
+            isPalindrome(s);
             break;
         }
         default:
