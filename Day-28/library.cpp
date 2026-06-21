@@ -1,6 +1,8 @@
 #include <iostream>
 #include <vector>
 #include <string>
+#include <chrono>
+#include <stdexcept>
 using namespace std;
 int main(){
     class Borrower{
@@ -34,6 +36,7 @@ int main(){
                 getline(cin, issueDate);
                 cout << "Enter Return Date(DD-MM-YYYY): ";
                 getline(cin, date);
+                fine = fineCalculate(calculateDays());
             }
 
             void displayBorrowerDetails(){
@@ -44,34 +47,42 @@ int main(){
                 cout << "Return Date: " << date << endl;
                 cout << "Fine: " << fine << endl;
             }
+            bool isValidDate(int year, int month, int day) {
+                if (year < 1 || month < 1 || month > 12 || day < 1) return false;
+
+                // Days in each month
+                int daysInMonth[] = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+
+                // Leap year check
+                bool isLeap = (year % 4 == 0 && year % 100 != 0) || (year % 400 == 0);
+                if (isLeap)
+                    daysInMonth[1] = 29;
+
+                return day <= daysInMonth[month - 1];
+            }
+
+            // Function to convert date to sys_days (C++20) or manual chrono workaround
+            std::chrono::sys_days toSysDays(int year, unsigned int month, unsigned int day) {
+                using namespace std::chrono;
+                return sys_days{std::chrono::year{year} / std::chrono::month{month} / std::chrono::day{day}};
+            }
             int calculateDays(){
-                //Days since Jan 1st 2025
+                //Days since 01-01-0000
                 int issueDay = stoi(issueDate.substr(0, 2));
-                int issueMonth = stoi(issueDate.substr(3, 2));
-                int issueYear = stoi(issueDate.substr(6, 4));
+                unsigned int issueMonth = stoi(issueDate.substr(3, 5));
+                int issueYear = stoi(issueDate.substr(6));
 
                 int returnDay = stoi(date.substr(0, 2));
-                int returnMonth = stoi(date.substr(3, 2));
-                int returnYear = stoi(date.substr(6, 4));
+                unsigned int returnMonth = stoi(date.substr(3, 5));
+                int returnYear = stoi(date.substr(6));
                 
-                int daysInMonth[] = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
-                if((returnYear%4==0&&returnYear%100!=0)||returnYear%400==0){
-                    daysInMonth[1] = 29;
-                }
-                
-                //366+365+365+365+366
-
-                int returnDateInDays = returnDay;
-                for(int i = 0; i < returnMonth - 1; i++){
-                    returnDateInDays += daysInMonth[i];
-                }
-
-                //int days = (returnYear - issueYear) * 365 + (returnMonth - issueMonth) * 30 + (returnDay - issueDay);
-
-                int days = 0;
+                auto date1 = toSysDays(issueYear, issueMonth, issueDay);
+                auto date2 = toSysDays(returnYear, returnMonth, returnDay);
+                int days = date2.time_since_epoch().count() - date1.time_since_epoch().count();
                 
                 return days;
             }
+
             int fineCalculate(int days){
                 if(days > 15){
                     fine = (days - 15) * 5;
