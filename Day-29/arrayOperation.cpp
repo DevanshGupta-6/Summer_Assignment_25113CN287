@@ -44,7 +44,7 @@ int main(){
         cin>>arr[i];
     }
     int c;
-    cout<<"Enter your choice: 1. Sorting the array 2. Reversing the array: 3. Display the array: 4. Searching an element: ";
+    cout<<"Enter your choice:\n1. Sorting the array\n2. Reversing the array: \n3. Display the array: \n4. Searching an element: ";
     cin>>c;
     switch(c){
         case 1:
