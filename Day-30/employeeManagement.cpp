@@ -89,13 +89,13 @@ int main(){
     cout<<"Enter your choice:\n1. Enter a new Employee\n2. List out all Employees";
     vector<Employee> Employees;
     cin>>ch;
-    
+
     switch(ch){
-        case 1:
-            Employee emp;
+        case 1:{Employee emp;
             emp.enterRecords();
             Employees.push_back(emp);
             break;
+        }    
         case 2:
             cout << "\nDetails of Employees:\n";
             for(auto& emp : Employees){
